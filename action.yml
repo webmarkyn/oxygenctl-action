@@ -120,7 +120,7 @@ runs:
             --token=${{ steps.check_version.outputs.v2_token }}"
           if [ "${{ inputs.oxygen_deployment_verification }}" == "false" ]; then
             oxygen_v2_command+=" --skipVerification"
-          }
+          fi
 
           if [[ "${{ env.PRIORITY }}" == "v2" ]]; then
             output=$(cd oxygen_v2 && ln -s ../node_modules node_modules && $oxygen_v2_command --buildCommand="${build_command_filtered}")
